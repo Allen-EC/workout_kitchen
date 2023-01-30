@@ -1,10 +1,10 @@
-# gunderleben
+# Workout Kitchen
 
 ## Description
 
-This is a simple webpage.The following image shows the web application's appearance and functionality after generating a password:
+This app will provide recipes and exercises for the user based on their choices.
 
-![demo](./assets/images/screenshot2.png)
+![demo](./assets/images/screenshot.png)
 
 ## Installation
 
