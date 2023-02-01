@@ -1,0 +1,24 @@
+/* Workout Kitchen - Group Project */
+/* General Styling */
+
+/* This properties will be applied to entire webpage */
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  /* Color/Palette is being defined */
+  :root {
+    --bg: #d9e7fa;
+   /* Others to be defined */
+  }
+  
+  /* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+  }
+
