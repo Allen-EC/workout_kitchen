@@ -10,7 +10,7 @@
   
   /* Color/Palette is being defined */
   :root {
-    --bg: #d9e7fa;
+    --bg: ##f1f0ee;
    /* Others to be defined */
   }
   
@@ -20,6 +20,30 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
+    background-color: var(--bg);
   }
 
 
+/* ------ */
+/* Jumbotron */
+
+#jumbotron {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;   
+}
+
+#jumbotronText {
+    width: 50%;
+    padding-left: 10%;
+    display: flex;
+    text-align: center;
+}
+
+#jumbotronImage {
+  border-radius: 10px;
+}
