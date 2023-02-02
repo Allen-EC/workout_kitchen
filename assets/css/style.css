@@ -3,26 +3,25 @@
 
 /* This properties will be applied to entire webpage */
 * {
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-  }
-  
-  /* Color/Palette is being defined */
-  :root {
-    --bg: ##f1f0ee;
-   /* Others to be defined */
-  }
-  
-  /* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 1.5;
-    background-color: var(--bg);
-  }
+  box-sizing: border-box;
+  text-decoration: none;
+}
 
+/* Color/Palette is being defined */
+:root {
+  --bg: ##f1f0ee;
+  /* Others to be defined */
+}
+
+/* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg);
+}
 
 /* ------ */
 /* Jumbotron */
@@ -39,10 +38,10 @@
 }
 
 #jumbotronText {
-    width: 50%;
-    padding-left: 10%;
-    display: flex;
-    text-align: center;
+  width: 50%;
+  padding-left: 10%;
+  display: flex;
+  text-align: center;
 }
 
 #jumbotronImage {
@@ -60,7 +59,6 @@
 .card-title {
   text-align: center;
 }
-
 
 /*--Navbar position--*/
 .navbar {
