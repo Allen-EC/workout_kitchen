@@ -27,14 +27,14 @@ body {
 /* Jumbotron */
 
 #jumbotron {
-  display: flex;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 50px;
-  height: 300px;
-  justify-content: center;
-  align-items: center;
-  background-color: bisque;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;   
 }
 
 #jumbotronText {
