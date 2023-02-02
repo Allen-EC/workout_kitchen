@@ -47,3 +47,15 @@
 #jumbotronImage {
   border-radius: 10px;
 }
+
+/* ------ */
+/* Cards for recipes */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.card-title {
+  text-align: center;
+}
