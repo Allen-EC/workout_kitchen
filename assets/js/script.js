@@ -16,5 +16,16 @@ recipesDivEl.on("click", function (e) {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    // loop over the response array and dynamically create recipe card based on received data
+    for (var i = 0; i < response.length; i++) {
+      var divElCard = $("<div>");
+      divElCard.addClass("card");
+      divElCard.attr("style", "width:20rem");
+      var imageRecipe = $("<img>");
+      imageRecipe.addClass("card-img-top");
+      imageRecipe.attr("src", response[i].image);
+      divElCard.append(imageRecipe);
+      recipesDivEl.append(divElCard);
+    }
   });
 });

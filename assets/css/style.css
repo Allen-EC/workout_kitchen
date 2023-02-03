@@ -27,14 +27,14 @@ body {
 /* Jumbotron */
 
 #jumbotron {
-    display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 50px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    background-color: bisque;   
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
 }
 
 #jumbotronText {
@@ -54,7 +54,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin: 20px;
+}
+
+.card {
+  margin: 10px;
 }
 .card-title {
   text-align: center;
@@ -71,7 +76,7 @@ body {
 /*--Footer--*/
 footer {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 10px;
   border-top: 2px solid black;
   padding: 10px;
