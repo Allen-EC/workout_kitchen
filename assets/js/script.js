@@ -2,7 +2,7 @@ var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
 var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
 var navEl = $(".navbar");
-var btnClose = $("<button>Cloese</button>");
+var btnClose = $("<button>Show Less</button>");
 btnClose.addClass("btn btn-secondary");
 var btnSave = $("<button>Save</button>");
 btnSave.addClass("btn btn-secondary");
@@ -54,8 +54,10 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
   var cardBodyElement = buttonEl.parent();
   var cardDiv = buttonEl.parent().parent();
   cardDiv.attr("style", "width:30rem");
+  //   INGREDIENTS:
   var textIngredients = $("<h5>Ingredients:</h5>");
   textIngredients.addClass("ingredients");
+  // PREPARATION
   var prepTitle = $("<h5>Preparation:</h5>");
   prepTitle.addClass("prep-title");
   // API call based on meal id
@@ -69,7 +71,9 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
     method: "GET",
   }).then(function (response) {
     // creating ul with li elements containing recipe ingredients
+
     var prepText = $("<p>" + response.instructions + "<p>");
+    // •••••INGREDIENTS LIST
     var ulEl = $("<ul>");
     ulEl.addClass("ul-ingredients");
     for (i = 0; i < response.extendedIngredients.length; i++) {
@@ -77,8 +81,14 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
       ulEl.append(liEl);
     }
     // displaying to the user
-    cardBodyElement.append(textIngredients, ulEl, prepTitle, prepText);
+    var expandEl = $("<div>");
+    expandEl.addClass("expand-text");
+    expandEl.append(textIngredients, ulEl, prepTitle, prepText);
+    cardBodyElement.append(expandEl);
     cardBodyElement.append(btnClose, btnSave);
   });
 });
-btnClose.on("click", function () {});
+btnClose.on("click", function () {
+  $(".expand-text").hide();
+  $(".primary-btn").show();
+});
