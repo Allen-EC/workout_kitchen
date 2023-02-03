@@ -1,6 +1,6 @@
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=fe29821c13db4e459d6e8bf085396eac";
+var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
 var navEl = $(".navbar");
 var btnClose = $("<button>Cloese</button>");
 btnClose.addClass("btn btn-secondary");
@@ -55,7 +55,9 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
   var cardDiv = buttonEl.parent().parent();
   cardDiv.attr("style", "width:30rem");
   var textIngredients = $("<h5>Ingredients:</h5>");
+  textIngredients.addClass("ingredients");
   var prepTitle = $("<h5>Preparation:</h5>");
+  prepTitle.addClass("prep-title");
   // API call based on meal id
   var urlId =
     "https://api.spoonacular.com/recipes/" +
@@ -66,10 +68,10 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
     url: urlId,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     // creating ul with li elements containing recipe ingredients
     var prepText = $("<p>" + response.instructions + "<p>");
     var ulEl = $("<ul>");
+    ulEl.addClass("ul-ingredients");
     for (i = 0; i < response.extendedIngredients.length; i++) {
       var liEl = $("<li>" + response.extendedIngredients[i].original + "</li>");
       ulEl.append(liEl);
@@ -79,3 +81,4 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
     cardBodyElement.append(btnClose, btnSave);
   });
 });
+btnClose.on("click", function () {});
