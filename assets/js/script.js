@@ -54,6 +54,7 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
   var cardBodyElement = buttonEl.parent();
   var cardDiv = buttonEl.parent().parent();
   cardDiv.attr("style", "width:30rem");
+  cardDiv.addClass("recipe-card-main");
   //   INGREDIENTS:
   var textIngredients = $("<h5>Ingredients:</h5>");
   textIngredients.addClass("ingredients");
@@ -90,5 +91,6 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
 });
 btnClose.on("click", function () {
   $(".expand-text").hide();
-  $(".primary-btn").show();
+  $(".recipe-card-main").attr("style", "width: 20rem");
+  $(".btn-primary").show();
 });
