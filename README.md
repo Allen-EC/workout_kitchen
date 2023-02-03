@@ -10,7 +10,7 @@ This app will provide recipes and exercises for the user based on their choices.
 
 ## Usage
 
-The deployed application can be found here: https://allen-ec.github.io/demo/
+The deployed application can be found here: https://allen-ec.github.io/workout-kitchen/
 
 
 ## Credits
