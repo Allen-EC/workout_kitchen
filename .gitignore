@@ -1,0 +1,14 @@
+# ignore ALL .log files
+*.log
+
+# ignore all tramp files
+*.tramp
+
+# ignore story file
+story.md
+
+# ignore all blob files
+*.blob 
+
+# ignore ALL files in ANY directory named temp
+temp/ 
