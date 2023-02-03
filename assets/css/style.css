@@ -64,6 +64,9 @@ body {
 .card-title {
   text-align: center;
 }
+.btn {
+  margin-right: 20px;
+}
 
 /*--Navbar position--*/
 .navbar {
