@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-The deployed application can be found here: https://allen-ec.github.io/demo/
+The deployed application can be found here: https://allen-ec.github.io/workout_kitchen/
 
 
 ## Credits
