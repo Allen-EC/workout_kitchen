@@ -51,27 +51,6 @@
     </header>
 
     <main>
-
-    <!----------TESTING SELECT MENUS------------>
-    <label for="difficulty">Select a difficulty:</label>
-    <select name="difficulty" id="difficulty">
-      <option value="beginner" selected>Beginner</option>
-      <option value="intermediate">Intermediate</option>
-      <option value="expert">Expert</option>
-    </select>
-    <label for="type">Type of Exercise</label>
-    <select name="type" id="type">
-      <option value="cardio" selected>Cardio</option>
-      <option value="olympic_weightlifting">Olympic Weightlifting</option>
-      <option value="plyometrics">Plyometrics</option>
-      <option value="powerlifting">Powerlifting</option>
-      <option value="strength">Strength</option>
-      <option value="stretching">Stretching</option>
-      <option value="strongman">Strongman</option>
-    </select>
-    <button id="submit-exercise" class="btn btn-primary">Submit</button>
-
-    <!------------------------------------------->
     <!--Input forms for searching recipes and exercises-->
     <div class="container-lg">
         <div class="row" align-items-center>
@@ -81,8 +60,9 @@
                 <div class="card-body text-black">
                     <h2 class="card-title">Recipe</h2>
                     <form class="form-outline">
-                        <input type="text" id="recipeInput" class="form-control" />
                         <label Class="form-label" for="recipeInput">Please enter a search term for your recipe</label>
+                        <input type="text" id="recipeInput" class="form-control" />
+                        <br>
                         <button class="btn btn-outline-dark">Submit</button>
                     </form>
                 </div>
@@ -93,12 +73,24 @@
                     <div class="card-body text-black">
                         <h2 class="card-title">Exercise</h2>
                         <form class="form-outline">
-                            <input type="text" id="exerciseInput" class="form-control" />
-                            <label Class="form-label" for="exerciseInput">Please enter type of exercise</label>
-                        </form>
-                        <form class="form-outline">
-                            <input type="text" id="exerciseLevel" class="form-control" />
-                            <label Class="form-label" for="exerciseLevel">Please enter your exercise level</label>
+                            <label Class="form-label" for="exerciseInput">Please select type of exercise</label>
+                            <select name="type" id="exerciseType" class="form-select">
+                              <option value="cardio" selected>Cardio</option>
+                              <option value="olympic_weightlifting">Olympic Weightlifting</option>
+                              <option value="plyometrics">Plyometrics</option>
+                              <option value="powerlifting">Powerlifting</option>
+                              <option value="strength">Strength</option>
+                              <option value="stretching">Stretching</option>
+                              <option value="strongman">Strongman</option>
+                            </select>
+
+                            <label Class="form-label" for="exerciseLevel">Please select your exercise level</label>
+                            <select name="level" id="exerciseLevel" class="form-select">
+                              <option value="beginner" selected>Beginner</option>
+                              <option value="intermediate">Intermediate</option>
+                              <option value="expert">Expert</option>
+                            </select>
+                            <br>
                             <button class="btn btn-outline-dark">Submit</button>
                         </form>
                     </div>
