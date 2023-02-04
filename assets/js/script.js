@@ -15,7 +15,7 @@ $('#submit-exercise').on("click", function(event){
         headers: { 'X-Api-Key': ninjaAPI},
         contentType: 'application/json',
         success: function(result) {
-            console.log(result);
+            createCards(result);
         },
         error: function ajaxError(jqXHR) {
             console.error('Error: ', jqXHR.responseText);
@@ -23,3 +23,10 @@ $('#submit-exercise').on("click", function(event){
     });
 
 })
+
+//function for creating cards out of the response data
+function createCards(data){
+    for (var i=0; i<6; i++){
+        console.log(data[i].name);
+    }
+}
