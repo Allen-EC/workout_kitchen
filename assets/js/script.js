@@ -26,9 +26,9 @@ $('#submit-exercise').on("click", function(event){
 
 //function for creating cards out of the response data
 function createCards(data){
-    $('.exercise-cards-container').empty();
+  $('.exercise-cards-container').empty();
+  if (data.length !== 0){
     for (var i=0; i<6; i++){
-        console.log(data[i].name);
         var exCard = $('<div class="card" style="width:20rem"></div>');
         var exCardBody = $('<div class="card-body"></div>');
         var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
@@ -44,6 +44,10 @@ function createCards(data){
         exCard.append(exCardBody, instructions);
         $('.exercise-cards-container').append(exCard);
     }
+  } else {
+    var noResultsText = $('<p>No results - please try another exercise search</p>');
+    $('.exercise-cards-container').append(noResultsText);
+  }
 }
 
 //function to remove special characters and replace with spaces (fixes typo issues in exercise API data)
