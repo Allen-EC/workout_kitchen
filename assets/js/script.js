@@ -26,7 +26,7 @@ $('#submit-exercise').on("click", function(event){
 
 //function for creating cards out of the response data
 function createCards(data){
-    $('#exerciseCardContainer').empty();
+    $('.exercise-cards-container').empty();
     for (var i=0; i<6; i++){
         console.log(data[i].name);
         var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
