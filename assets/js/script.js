@@ -29,16 +29,16 @@ function createCards(data){
     $('.exercise-cards-container').empty();
     for (var i=0; i<6; i++){
         console.log(data[i].name);
+        var exCard = $('<div class="card" style="width:20rem"></div>');
+        var exCardBody = $('<div class="card-body">');
+        var exCardText = $('<p class="card-text"></p>');
         var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
-        var cardBody = $('<div class="card-body">');
-        var cardText = $('<p class="card-text"></p>');
         var equipment = 'Equipment: ' + removeSpecialChars(data[i].equipment) + '.';
         var muscle = 'Target muscle: ' + data[i].muscle + '.';
         var instructions = 'Instructions: ' + data[i].instructions;
-        cardText.append(equipment, muscle, instructions);
-        cardBody.append(exName, cardText);
-        var exCard = $('<div class="card" style="width:30rem"></div>');
-        exCard.append(cardBody);
+        exCardText.append(equipment, muscle, instructions);
+        exCardBody.append(exName, exCardText);
+        exCard.append(exCardBody);
         $('#exerciseCardContainer').append(exCard);
     }
 }
