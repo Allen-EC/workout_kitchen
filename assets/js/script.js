@@ -30,16 +30,15 @@ function createCards(data){
     for (var i=0; i<6; i++){
         console.log(data[i].name);
         var exCard = $('<div class="card" style="width:20rem"></div>');
-        var exCardBody = $('<div class="card-body">');
-        var exCardText = $('<p class="card-text"></p>');
+        var exCardBody = $('<div class="card-body"></div>');
         var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
-        var equipment = 'Equipment: ' + removeSpecialChars(data[i].equipment) + '.';
-        var muscle = 'Target muscle: ' + data[i].muscle + '.';
-        var instructions = 'Instructions: ' + data[i].instructions;
-        exCardText.append(equipment, muscle, instructions);
-        exCardBody.append(exName, exCardText);
-        exCard.append(exCardBody);
-        $('#exerciseCardContainer').append(exCard);
+        var equipment = $('<p class="card-text">Equipment: ' + removeSpecialChars(data[i].equipment) + '.</p>');
+        var muscle = $('<p class="card-text">Target muscle: ' + data[i].muscle + '.</p>');
+        var btnInstructions = $('<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#instructionsCollapse' + [i] + '" aria-expanded="false" aria-controls="instructionsCollapse' + [i] + '">Instructions</button>');
+        var instructions = $('<div class="collapse" id="instructionsCollapse' + [i] + '"><p class="card-text">' + data[i].instructions + '</p></div>');
+        exCardBody.append(exName, equipment, muscle, btnInstructions);
+        exCard.append(exCardBody, instructions);
+        $('.exercise-cards-container').append(exCard);
     }
 }
 
