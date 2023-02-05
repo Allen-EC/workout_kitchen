@@ -51,20 +51,20 @@
     </header>
 
     <main>
-
-      <div class="container-lg">
+    <!--Input forms for searching recipes and exercises-->
+    <div class="container-lg">
         <div class="row" align-items-center>
             <div id="recipe" class="col-xl-4 col-md-6"
-
                 class="bg-image card shadow-1-strong" 
                 style="background-image: url('./assets/images/recipe.jpg'); height: 500px">
                 <div class="card-body text-black">
                     <h2 class="card-title">Recipe</h2>
-                    <div class="form-outline">
-                        <input type="text" id="recipeInput" class="form-control" />
+                    <form class="form-outline">
                         <label Class="form-label" for="recipeInput">Please enter a search term for your recipe</label>
-                    </div>
-                    <a href="#!" class="btn btn-outline-dark">Submit</a>
+                        <input type="text" id="recipeInput" class="form-control" />
+                        <br>
+                        <button class="btn btn-outline-dark">Submit</button>
+                    </form>
                 </div>
             </div>
             <div id="exercise" class="col-xl-4 col-md-6"
@@ -72,15 +72,27 @@
                     style="background-image: url('./assets/images/exercise.jpg'); height: 500px">
                     <div class="card-body text-black">
                         <h2 class="card-title">Exercise</h2>
-                        <div class="form-outline">
-                            <input type="text" id="exerciseInput" class="form-control" />
-                            <label Class="form-label" for="exerciseInput">Please enter type of exercise</label>
-                        </div>
-                        <div class="form-outline">
-                            <input type="text" id="exerciseLevel" class="form-control" />
-                            <label Class="form-label" for="exerciseLevel">Please enter your exercise level</label>
-                        </div>
-                        <a href="#!" class="btn btn-outline-dark">Submit</a>
+                        <form class="form-outline">
+                            <label Class="form-label" for="exerciseInput">Please select type of exercise</label>
+                            <select name="type" id="exerciseType" class="form-select">
+                              <option value="cardio" selected>Cardio</option>
+                              <option value="olympic_weightlifting">Olympic Weightlifting</option>
+                              <option value="plyometrics">Plyometrics</option>
+                              <option value="powerlifting">Powerlifting</option>
+                              <option value="strength">Strength</option>
+                              <option value="stretching">Stretching</option>
+                              <option value="strongman">Strongman</option>
+                            </select>
+
+                            <label Class="form-label" for="exerciseLevel">Please select your exercise level</label>
+                            <select name="level" id="exerciseLevel" class="form-select">
+                              <option value="beginner" selected>Beginner</option>
+                              <option value="intermediate">Intermediate</option>
+                              <option value="expert">Expert</option>
+                            </select>
+                            <br>
+                            <button class="btn btn-outline-dark">Submit</button>
+                        </form>
                     </div>
             </div>
         </div>

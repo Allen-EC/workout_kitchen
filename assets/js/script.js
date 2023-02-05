@@ -99,4 +99,3 @@ btnClose.on("click", function () {
   btnSave.hide();
   btnClose.hide();
 });
-// added
