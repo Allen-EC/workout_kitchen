@@ -38,9 +38,11 @@ navEl.on("click", function () {
       var btnFullRecipe = $("<button>See Full Recipe</button>");
       btnFullRecipe.addClass("btn btn-primary");
       btnFullRecipe.attr("data-id", response[i].id);
+      var save = $("<button>Save</button>");
+      save.addClass(" btn btn-secondary");
       // displaying dynamically created cards to the user
+      recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
       divRecipeCard.append(imageRecipe, recipeCardBody);
-      recipeCardBody.append(recipeTitleEL, btnFullRecipe);
       recipesContainerEl.append(divRecipeCard);
     }
   });
@@ -72,7 +74,6 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
     method: "GET",
   }).then(function (response) {
     // creating ul with li elements containing recipe ingredients
-
     var prepText = $("<p>" + response.instructions + "<p>");
     // •••••INGREDIENTS LIST
     var ulEl = $("<ul>");
@@ -89,8 +90,12 @@ recipesContainerEl.on("click", ".btn-primary", function (e) {
     cardBodyElement.append(btnClose, btnSave);
   });
 });
+
+// Event listener for close button
 btnClose.on("click", function () {
   $(".expand-text").hide();
   $(".recipe-card-main").attr("style", "width: 20rem");
   $(".btn-primary").show();
+  btnSave.hide();
+  btnClose.hide();
 });
