@@ -34,15 +34,19 @@ function createCards(data){
         var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
         var equipment = $('<p class="card-text">Equipment: ' + removeSpecialChars(data[i].equipment) + '.</p>');
         var muscle = $('<p class="card-text">Target muscle: ' + data[i].muscle + '.</p>');
+        //creates button which will extend card to show instructions
         var btnInstructions = $('<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#instructionsCollapse' + [i] + '" aria-expanded="false" aria-controls="instructionsCollapse' + [i] + '">Instructions</button>');
         var instructions = $('<div class="collapse" id="instructionsCollapse' + [i] + '"><p class="card-text">' + data[i].instructions + '</p></div>');
-        exCardBody.append(exName, equipment, muscle, btnInstructions);
+        //creates save button
+        var exSaveBtn = $('<button class="btn btn-secondary" id="exSaveBtn">Save</button>');
+        //appending all created elements to the exercise card container
+        exCardBody.append(exName, equipment, muscle, btnInstructions, exSaveBtn);
         exCard.append(exCardBody, instructions);
         $('.exercise-cards-container').append(exCard);
     }
 }
 
-//function to remove special characters and replace with spaces (fixes typo issues in API data)
+//function to remove special characters and replace with spaces (fixes typo issues in exercise API data)
 function removeSpecialChars(string){
     var newString = string.replace(/[^a-zA-Z0-9\s]/gi, ' ');
     return newString;
