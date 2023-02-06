@@ -11,6 +11,7 @@ btnSave.addClass("btn btn-secondary");
 // click event on recipes div-container/latter to be changed on "button"
 searchBtn.on("click", function (e) {
   e.preventDefault();
+  recipesContainerEl.empty();
   var usersInput = inputEl.val();
   var urlIngredient =
     "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
@@ -60,9 +61,13 @@ searchBtn.on("click", function (e) {
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
   if ($(".card-body").find(".expand").length > 0) {
     console.log("has");
-    $(".expand").hide();
+    $(".expand").remove();
     $(".card-recipe").attr("style", "width:20rem");
-  } else {
+  }
+  //   if ($(".card-body").has(".expand")) {
+  //     console.log("has");
+  //   }
+  else {
     var buttonEl = $(this);
     var mealId = buttonEl.data("id");
     var cardBodyElement = buttonEl.parent();
