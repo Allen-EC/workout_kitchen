@@ -55,6 +55,26 @@ header {
   }
  }
 
+/* NavBar Shape Divider */
+/* https://www.shapedivider.app/ */
+.custom-shape-divider-top-1675628588 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.custom-shape-divider-top-1675628588 svg {
+  position: relative;
+  display: block;
+  width: calc(131% + 1.3px);
+  height: 100px;
+  transform: rotateY(180deg);
+}
+.custom-shape-divider-top-1675628588 .shape-fill {
+  fill: #F1AF41;
+}
 
 /* ------ */
 /* Jumbotron */
