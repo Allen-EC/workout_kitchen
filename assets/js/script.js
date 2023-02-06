@@ -10,7 +10,6 @@ btnSave.addClass("btn btn-secondary");
 
 // click event on recipes div-container/latter to be changed on "button"
 searchBtn.on("click", function () {
-  //   e.preventDefault();
   recipesContainerEl.empty();
   var usersInput = inputEl.val();
   inputEl.val("");
@@ -64,11 +63,7 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
     console.log("has");
     $(".expand").remove();
     $(".card-recipe").attr("style", "width:20rem");
-  }
-  //   if ($(".card-body").has(".expand")) {
-  //     console.log("has");
-  //   }
-  else {
+  } else {
     var buttonEl = $(this);
     var mealId = buttonEl.data("id");
     var cardBodyElement = buttonEl.parent();
