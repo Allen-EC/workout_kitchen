@@ -9,8 +9,8 @@ var btnSave = $("<button>Save</button>");
 btnSave.addClass("btn btn-secondary");
 
 // click event on recipes div-container/latter to be changed on "button"
-searchBtn.on("click", function (e) {
-  e.preventDefault();
+searchBtn.on("click", function () {
+  //   e.preventDefault();
   recipesContainerEl.empty();
   var usersInput = inputEl.val();
   inputEl.val("");
