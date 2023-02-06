@@ -1,27 +1,60 @@
 /* Workout Kitchen - Group Project */
 /* General Styling */
 
-/* This properties will be applied to entire webpage */
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-/* Color/Palette is being defined */
-:root {
-  --bg: ##f1f0ee;
-  /* Others to be defined */
-}
 
 /* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  line-height: 1.5;
-  background-color: var(--bg);
+  background-image: url("images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+/* header */
+/* navbar */
+
+header {
+  background-color: white;
+}
+.navBar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 0px 5%;
+  align-items: center;
+  z-index: 1;
+}
+.navbarLinks {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  
+}
+.nav {
+  --bs-nav-link-color: black;
+}
+.navbarLinks li {
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+.navbarLinks a {
+  border-bottom: solid 2px black;
+}
+.iconLink img {
+  width: auto;
+  max-height: 175px;
+}
+
+/* Making Icon more responsive for smaller screens  */
+@media only screen and (max-width: 360px) {
+  .iconLink img {
+      max-height: 50vw;
+  }
+ }
+
 
 /* ------ */
 /* Jumbotron */
