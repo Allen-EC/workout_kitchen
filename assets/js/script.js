@@ -1,6 +1,6 @@
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
+var keyRecipes = "&apiKey=fe29821c13db4e459d6e8bf085396eac";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -13,6 +13,7 @@ searchBtn.on("click", function (e) {
   e.preventDefault();
   recipesContainerEl.empty();
   var usersInput = inputEl.val();
+  inputEl.val("");
   var urlIngredient =
     "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
     usersInput +
