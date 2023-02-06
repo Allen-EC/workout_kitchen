@@ -67,6 +67,25 @@ body {
   
 }
 
+/* Divider between Header and Main */
+.custom-shape-divider-top-1675629525 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.custom-shape-divider-top-1675629525 svg {
+  position: relative;
+  display: block;
+  width: calc(182% + 1.3px);
+  height: 92px;
+  transform: rotateY(180deg);
+}
+.custom-shape-divider-top-1675629525 .shape-fill {
+  fill: #FFFFFF;
+}
 
 /* ------ */
 /* Cards for recipes */
