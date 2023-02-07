@@ -209,7 +209,7 @@ $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
   var exCardTextEquip = $(event.target).siblings('.equipment').text();
   var exCardTextMuscle = $(event.target).siblings('.muscle').text();
   var exCardInstructions = $(event.target).parent().siblings().text();
-  var favouriteExercises = JSON.parse(localStorage.getItem('favorite-exercises')) || [];
+  var favouriteExercises = JSON.parse(localStorage.getItem('favourite-exercises')) || [];
   var savedExCard = {
     title: exCardTitle,
     equipment: exCardTextEquip,
@@ -217,7 +217,7 @@ $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
     instructions: exCardInstructions
   }
   favouriteExercises.push(savedExCard);
-  localStorage.setItem('favorite-exercises', JSON.stringify(favouriteExercises));
+  localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
 });
 
 //save recipe
@@ -227,14 +227,14 @@ $(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
   var recipeCardID = $(event.target).siblings('.btn-toggle').attr("data-id");
   console.log(recipeCardID);
   var recipeImg = $(event.target).parent().siblings("img").attr("src");
-  var favouriteRecipes = JSON.parse(localStorage.getItem('favorite-recipes')) || [];
+  var favouriteRecipes = JSON.parse(localStorage.getItem('favourite-recipes')) || [];
   var savedRecipeCard = {
     title: recipeCardTitle,
     image: recipeImg,
     id: recipeCardID
   }
   favouriteRecipes.push(savedRecipeCard);
-  localStorage.setItem('favorite-recipes', JSON.stringify(favouriteRecipes));
+  localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
 });
 
 //function to change the text and icon on the button when clicked
