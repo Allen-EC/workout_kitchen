@@ -138,6 +138,119 @@ header {
 }
 
 /* ------ */
+main {
+  margin-bottom: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.userSelection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  height: 20vw;
+}
+/* input for user */
+#recipeForm, #exerciseForm {
+  display: flex;
+  justify-content:space-evenly;
+}
+#recipeForm{
+  width: 50%;
+}
+#exerciseForm {
+  width: 80%;
+}
+#recipe, #exercises, .cardContainer{
+  width: 84vw;
+  height: 13vw;
+  border-radius: 3vw;
+  background-color: white;
+  box-shadow: 4px 4px 26px -3px rgba(0,0,0,0.1);    
+}
+.formText {
+  color: black;
+  font-weight: 700;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  padding: 1.5% 0% 0% 5%;
+  margin-bottom: 0;
+}
+.userSearch {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
+}
+#recipeInput, #exerciseLevel, #exerciseType{
+  padding: 1vw;
+  font-size:1.5vw;
+  border-width: 1px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 50px;
+  width: 20vw;
+  height: 5vw;
+}
+#recipeInput {
+  text-align: center;
+}
+#exerciseLevel, #exerciseType {
+  width: 23vw;
+}
+.buttonSearch{
+  font-weight: 600;
+  font-size: 1.25vw;
+  color: #000000;
+  background-color: #f1af41;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  height: 3vw;
+  width: 10vw;
+}
+.btn-recipe, .btn-exercises {
+  display: flex;
+  align-items: center;
+  padding: 0%;
+  margin: 0%;
+}
+.btn {
+  margin-right: 2vw;
+}
+
+/* Card Container */
+.cardContainer {
+height: auto;
+/* display: none; */
+}
+.container-fluid {
+  padding: 0;
+}
+.row {
+  justify-content: center;
+  margin: 0;
+  padding: 1vw;
+}
+.col {
+  margin: 1vw 0 1vw 0;
+  padding: 0 1vw;
+}
+.card-title {
+  font-size: 3vw;
+}
+.card-text {
+  font-size: 2vw;
+}
+
+
+
+
+
 /* Cards for recipes */
 .card-container {
   display: flex;
@@ -160,38 +273,13 @@ header {
 .enjoy {
   text-align: center;
 }
-.btn {
-  margin: 10px;
-}
 .card-recipe {
   transition: all 0.5s linear;
 }
 .smooth {
   transition: all 0.5s linear;
 }
-/*--Navbar position--*/
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
 
-/*--Footer--*/
-footer p {
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.5vw;
-}
-
-/*--Select menus--*/
-label {
-  display: block;
-}
-
-select {
-  width: 200px;
-}
 
 /*Save buttons - ensures click event still works if icon inside button is clicked*/
 .ex-save-btn > * {
@@ -199,4 +287,12 @@ select {
 }
 .recipe-save-btn > * {
   pointer-events: none;
+}
+
+
+/*--Footer--*/
+footer p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5vw;
 }
