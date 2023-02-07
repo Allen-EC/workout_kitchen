@@ -1,7 +1,7 @@
 //-----RECIPE SEARCH-----
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=fe29821c13db4e459d6e8bf085396eac";
+var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -61,16 +61,18 @@ searchBtn.on("click", function () {
 // Click event on "See Full Recipe" button
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
   if ($(".card-body").find(".expand").length > 0) {
-    console.log("has");
-    $(".expand").remove();
-    $(".card-recipe").attr("style", "width:20rem");
+    $(".expand").hide("slow", function () {
+      $(".expand").remove();
+    });
+    var seenCard = $(".card-recipe");
+    seenCard.attr("style", "width: 20rem");
+    seenCard.removeClass("smooth");
   } else {
-    var buttonEl = $(this);
-    var mealId = buttonEl.data("id");
-    var cardBodyElement = buttonEl.parent();
-    var cardDiv = buttonEl.parent().parent();
-    cardDiv.attr("style", "width:30rem");
-    cardDiv.addClass("recipe-card-main");
+    var seenCard = $(this).parent().parent();
+    seenCard.addClass("smooth");
+    $(".smooth").attr("style", "width: 30rem");
+    var mealId = $(this).data("id");
+    var cardBodyElement = $(this).parent();
     var textIngredients = $("<h5>Ingredients:</h5>");
     var prepTitle = $("<h5>Preparation:</h5>");
     // API call based on meal id
@@ -83,6 +85,7 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       url: urlId,
       method: "GET",
     }).then(function (response) {
+      console.log(response);
       var prepText = $("<p>" + response.instructions + "<p>");
       // creating ul with li elements containing recipe ingredients
       var ulEl = $("<ul>");
@@ -95,67 +98,96 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       // displaying to the user
       var expandEl = $("<div>");
       expandEl.addClass("expand");
-      expandEl.append(textIngredients, ulEl, prepTitle, prepText);
-      cardBodyElement.append(expandEl);
+      var enjoyEl = $("<h5 class='enjoy'>Enjoy</h5>");
+      expandEl.append(textIngredients, ulEl, prepTitle, prepText, enjoyEl);
+      cardBodyElement.prepend(expandEl);
+      expandEl.hide();
+      expandEl.show("slow");
     });
   }
 });
 
-
 //-----EXERCISE SEARCH-----
 //key for the Exercise API from Ninja APIs
-var ninjaAPI = 'i+Zes/WnU72HDYemlL23/g==UqTBhzMEI1nSnXHh';
+var ninjaAPI = "i+Zes/WnU72HDYemlL23/g==UqTBhzMEI1nSnXHh";
 
 //click event for the submit button
-$('#submit-exercise').on("click", function(event){
-    event.preventDefault();
-    //targets the selected option of each menu
-    var level = $('#exerciseLevel').children('option:selected').val();
-    var type = $('#exerciseType').children('option:selected').val();
+$("#submit-exercise").on("click", function (event) {
+  event.preventDefault();
+  //targets the selected option of each menu
+  var level = $("#exerciseLevel").children("option:selected").val();
+  var type = $("#exerciseType").children("option:selected").val();
 
-    $.ajax({
-        method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/exercises?difficulty=' + level + '&type=' + type,
-        headers: { 'X-Api-Key': ninjaAPI},
-        contentType: 'application/json',
-        success: function(result) {
-            createCards(result);
-        },
-        error: function ajaxError(jqXHR) {
-            console.error('Error: ', jqXHR.responseText);
-        }
-    });
-
-})
+  $.ajax({
+    method: "GET",
+    url:
+      "https://api.api-ninjas.com/v1/exercises?difficulty=" +
+      level +
+      "&type=" +
+      type,
+    headers: { "X-Api-Key": ninjaAPI },
+    contentType: "application/json",
+    success: function (result) {
+      createCards(result);
+    },
+    error: function ajaxError(jqXHR) {
+      console.error("Error: ", jqXHR.responseText);
+    },
+  });
+});
 
 //function for creating cards out of the response data
-function createCards(data){
-  $('.exercise-cards-container').empty();
-  if (data.length !== 0){
-    for (var i=0; i<6; i++){
-        var exCard = $('<div class="card" style="width:20rem"></div>');
-        var exCardBody = $('<div class="card-body"></div>');
-        var exName = $('<h5 class="card-title">' + removeSpecialChars(data[i].name) + '</h5>');
-        var equipment = $('<p class="card-text">Equipment: ' + removeSpecialChars(data[i].equipment) + '.</p>');
-        var muscle = $('<p class="card-text">Target muscle: ' + data[i].muscle + '.</p>');
-        //creates button which will extend card to show instructions
-        var btnInstructions = $('<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#instructionsCollapse' + [i] + '" aria-expanded="false" aria-controls="instructionsCollapse' + [i] + '">Instructions</button>');
-        var instructions = $('<div class="collapse" id="instructionsCollapse' + [i] + '"><p class="card-text">' + data[i].instructions + '</p></div>');
-        //creates save button
-        var exSaveBtn = $('<button class="btn btn-secondary" id="exSaveBtn">Save</button>');
-        //appending all created elements to the exercise card container
-        exCardBody.append(exName, equipment, muscle, btnInstructions, exSaveBtn);
-        exCard.append(exCardBody, instructions);
-        $('.exercise-cards-container').append(exCard);
+function createCards(data) {
+  $(".exercise-cards-container").empty();
+  if (data.length !== 0) {
+    for (var i = 0; i < 6; i++) {
+      var exCard = $('<div class="card" style="width:20rem"></div>');
+      var exCardBody = $('<div class="card-body"></div>');
+      var exName = $(
+        '<h5 class="card-title">' + removeSpecialChars(data[i].name) + "</h5>"
+      );
+      var equipment = $(
+        '<p class="card-text">Equipment: ' +
+          removeSpecialChars(data[i].equipment) +
+          ".</p>"
+      );
+      var muscle = $(
+        '<p class="card-text">Target muscle: ' + data[i].muscle + ".</p>"
+      );
+      //creates button which will extend card to show instructions
+      var btnInstructions = $(
+        '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#instructionsCollapse' +
+          [i] +
+          '" aria-expanded="false" aria-controls="instructionsCollapse' +
+          [i] +
+          '">Instructions</button>'
+      );
+      var instructions = $(
+        '<div class="collapse" id="instructionsCollapse' +
+          [i] +
+          '"><p class="card-text">' +
+          data[i].instructions +
+          "</p></div>"
+      );
+      //creates save button
+      var exSaveBtn = $(
+        '<button class="btn btn-secondary" id="exSaveBtn">Save</button>'
+      );
+      //appending all created elements to the exercise card container
+      exCardBody.append(exName, equipment, muscle, btnInstructions, exSaveBtn);
+      exCard.append(exCardBody, instructions);
+      $(".exercise-cards-container").append(exCard);
     }
   } else {
-    var noResultsText = $('<p>No results - please try another exercise search</p>');
-    $('.exercise-cards-container').append(noResultsText);
+    var noResultsText = $(
+      "<p>No results - please try another exercise search</p>"
+    );
+    $(".exercise-cards-container").append(noResultsText);
   }
 }
 
 //function to remove special characters and replace with spaces (fixes typo issues in exercise API data)
-function removeSpecialChars(string){
-    var newString = string.replace(/[^a-zA-Z0-9\s]/gi, ' ');
-    return newString;
+function removeSpecialChars(string) {
+  var newString = string.replace(/[^a-zA-Z0-9\s]/gi, " ");
+  return newString;
 }

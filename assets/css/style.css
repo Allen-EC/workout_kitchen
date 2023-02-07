@@ -1,7 +1,6 @@
 /* Workout Kitchen - Group Project */
 /* General Styling */
 
-
 /* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
 body {
   background-image: url("../images/background.png");
@@ -31,7 +30,6 @@ header {
   font-size: 2vw;
   letter-spacing: 0.1em;
   font-weight: 700;
-  
 }
 .nav {
   --bs-nav-link-color: black;
@@ -51,9 +49,9 @@ header {
 /* Making Icon more responsive for smaller screens  */
 @media only screen and (max-width: 360px) {
   .iconLink img {
-      max-height: 50vw;
+    max-height: 50vw;
   }
- }
+}
 
 /* NavBar Shape Divider */
 /* https://www.shapedivider.app/ */
@@ -73,7 +71,7 @@ header {
   transform: rotateY(180deg);
 }
 .custom-shape-divider-top-1675628588 .shape-fill {
-  fill: #F1AF41;
+  fill: #f1af41;
 }
 
 /* ------ */
@@ -96,14 +94,14 @@ header {
   justify-content: center;
   width: 37.5%;
   padding: 10% 3% 10% 3%;
-  
 }
-#jumbotronWorkout,#jumbotronKitchen {
+#jumbotronWorkout,
+#jumbotronKitchen {
   display: flex;
   font-size: 5vw;
   font-weight: 700;
   margin: 0;
-} 
+}
 #jumbotronWorkout {
   justify-content: flex-start;
 }
@@ -117,7 +115,6 @@ header {
   display: flex;
   justify-content: center;
   font-size: 2vw;
-  
 }
 
 /* Divider between Header and Main */
@@ -137,7 +134,7 @@ header {
   transform: rotateY(180deg);
 }
 .custom-shape-divider-top-1675629525 .shape-fill {
-  fill: #FFFFFF;
+  fill: #ffffff;
 }
 
 /* ------ */
@@ -149,17 +146,29 @@ header {
   flex-wrap: wrap;
   margin: 20px;
 }
-
 .card {
   margin: 10px;
 }
-.card-title {
+.card img {
+  max-width: 300px;
+  height: auto;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+.card-title,
+.enjoy {
   text-align: center;
 }
 .btn {
   margin: 10px;
 }
-
+.card-recipe {
+  transition: all 0.5s linear;
+}
+.smooth {
+  transition: all 0.5s linear;
+}
 /*--Navbar position--*/
 .navbar {
   position: fixed;
@@ -175,13 +184,11 @@ footer p {
   font-size: 1.5vw;
 }
 
-
-
 /*--Select menus--*/
-label { 
-  display: block; 
+label {
+  display: block;
 }
 
-select { 
-  width: 200px; 
+select {
+  width: 200px;
 }
