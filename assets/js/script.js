@@ -28,7 +28,7 @@ searchBtn.on("click", function () {
     // loop over the response array and dynamically create recipe card based on received data
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
-        // creatin card div
+        // creating card div
         var divRecipeCard = $("<div>");
         divRecipeCard.addClass("card card-recipe");
         divRecipeCard.attr("style", "width:20rem");

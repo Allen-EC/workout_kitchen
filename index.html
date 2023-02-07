@@ -69,24 +69,66 @@
 
 
     <main>
+
+      <div class="userSelection">
+        <div id="recipe">
+          <p class="formText">Recipes Menu:</p>
+          <div class="userSearch">
+            <form id="recipeForm" class="form-outline">
+              <input type="text" id="recipeInput" placeholder="Meal/Ingredients" class="form-control" />
+              <a class="btn btn-recipe" href="#recipes-container"><button class="buttonSearch" type="button" value="Submit"> Search </button></a>
+          </form>
+          </div>
+      </div>
+    </div>
+
+
+    <!-- Exercises -->
+    <div class="userSelection">
+      <div id="exercises">
+        <p class="formText">Exercises Menu:</p>
+        <div class="userSearch">
+          <form id="exerciseForm" class="form-outline">
+            <select name="type" id="exerciseType" class="form-select">
+              <option value="cardio" selected>Cardio</option>
+              <option value="olympic_weightlifting">Olympic Weightlifting</option>
+              <option value="plyometrics">Plyometrics</option>
+              <option value="powerlifting">Powerlifting</option>
+              <option value="strength">Strength</option>
+              <option value="stretching">Stretching</option>
+              <option value="strongman">Strongman</option>
+            </select>
+
+            <select name="level" id="exerciseLevel" class="form-select">
+              <option value="beginner" selected>Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            <a class="btn btn-exercises" href="#exercises-container"><button id="submit-exercise" class="buttonSearch">Search</button></a>
+        </form>
+        </div>
+      </div>
+    </div>
+
+<!-- ---- OLD EXERCISE SEARCH - NEEDS TO REMOVED ---- -->
     <!--Input forms for searching recipes and exercises-->
-    <div class="container-lg">
+    <!-- <div class="container-lg">
         <div class="row" align-items-center>
-            <div id="recipe" class="col-xl-4 col-md-6"
-                class="bg-image card shadow-1-strong" 
-                style="background-image: url('./assets/images/recipe.jpg'); height: 500px">
+            <div id="recipe">
                 <div class="card-body text-black">
                     <h2 class="card-title">Recipe</h2>
                     <form class="form-outline">
                         <label Class="form-label" for="recipeInput">Please enter a search term for your recipe</label>
                         <input type="text" id="recipeInput" placeholder="pasta, tomato, cheese" class="form-control" />
-                        <br>
+                        <br> -->
                         <!-- <button class="btn btn-recipe btn-outline-dark">Submit</button> -->
-                        <a class="btn btn-recipe btn-outline-dark" href="#recipes-container">Submit</a>
+                        <!-- <a class="btn btn-recipe btn-outline-dark" href="#recipes-container">Submit</a>
                     </form>
                 </div>
-            </div>
-            <div id="exercise" class="col-xl-4 col-md-6"
+            </div> -->
+
+
+            <!-- <div id="exercise" class="col-xl-4 col-md-6"
                     class="bg-image d-flex justify-content-center align-items-center card shadow-1-strong" 
                     style="background-image: url('./assets/images/exercise.jpg'); height: 500px">
                     <div class="card-body text-black">
@@ -113,7 +155,7 @@
                             <button id="submit-exercise" class="btn btn-outline-dark">Submit</button>
                         </form>
                     </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -126,6 +168,7 @@
     <div class="card-container exercise-cards-container" id="exercises-container">
 
     </div>
+    
     </main>
 
     <footer>
