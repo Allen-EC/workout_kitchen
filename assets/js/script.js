@@ -1,7 +1,7 @@
 //-----RECIPE SEARCH-----
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
+var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -48,8 +48,8 @@ searchBtn.on("click", function () {
       btnFullRecipe.append(iconUp, iconDown);
       btnFullRecipe.addClass("btn btn-primary btn-toggle");
       btnFullRecipe.attr("data-id", response[i].id);
-      var save = $("<button>Save</button>");
-      save.addClass(" btn btn-secondary");
+      var save = $("<button>Save <i class='fa-solid fa-heart-circle-plus'></i></button>");
+      save.addClass("btn btn-secondary recipe-save-btn");
       // displaying dynamically created cards to the user
       recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
       divRecipeCard.append(imageRecipe, recipeCardBody);
@@ -171,7 +171,7 @@ function createCards(data) {
       );
       //creates save button
       var exSaveBtn = $(
-        '<button class="btn btn-secondary" id="exSaveBtn">Save</button>'
+        '<button class="btn btn-secondary ex-save-btn">Save <i class="fa-solid fa-heart-circle-plus"></i></button>'
       );
       //appending all created elements to the exercise card container
       exCardBody.append(exName, equipment, muscle, btnInstructions, exSaveBtn);
@@ -190,4 +190,23 @@ function createCards(data) {
 function removeSpecialChars(string) {
   var newString = string.replace(/[^a-zA-Z0-9\s]/gi, " ");
   return newString;
+}
+
+
+
+//click event for save buttons
+$(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
+  saveBtnIcon(event);
+});
+
+$(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
+  saveBtnIcon(event);
+});
+
+function saveBtnIcon(event) {
+  var btn = $(".btn").closest($(event.target));
+  btn.attr("data-click", "clicked");
+  btn.text('Saved ');
+  var savedIcon = $("<i class='fa-solid fa-heart-circle-check'></i>");
+  btn.append(savedIcon);
 }
