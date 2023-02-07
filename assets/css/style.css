@@ -158,24 +158,19 @@ main {
   display: flex;
   justify-content:space-evenly;
 }
-
 #recipeForm{
   width: 50%;
 }
-
 #exerciseForm {
   width: 80%;
 }
-
 #recipe, #exercises, .cardContainer{
   width: 84vw;
-  height: 12vw;
+  height: 13vw;
   border-radius: 3vw;
   background-color: white;
   box-shadow: 4px 4px 26px -3px rgba(0,0,0,0.1);    
 }
-
-
 .formText {
   color: black;
   font-weight: 700;
@@ -184,13 +179,11 @@ main {
   padding: 1.5% 0% 0% 5%;
   margin-bottom: 0;
 }
-
 .userSearch {
   display: flex;
   justify-content: center;
   padding-top: 2vw;
 }
-
 #recipeInput, #exerciseLevel, #exerciseType{
   padding: 1vw;
   font-size:1.5vw;
@@ -200,11 +193,15 @@ main {
   color: #000000;
   border-style: solid;
   border-radius: 50px;
-  text-align: center;
   width: 20vw;
-  height: 3vw;
+  height: 5vw;
 }
-
+#recipeInput {
+  text-align: center;
+}
+#exerciseLevel, #exerciseType {
+  width: 23vw;
+}
 .buttonSearch{
   font-weight: 600;
   font-size: 1.25vw;
@@ -216,24 +213,21 @@ main {
   height: 3vw;
   width: 10vw;
 }
-
 .btn-recipe, .btn-exercises {
   display: flex;
+  align-items: center;
   padding: 0%;
   margin: 0%;
 }
-
 .btn {
   margin-right: 2vw;
 }
-
 
 /* Card Container */
 .cardContainer {
 height: auto;
 /* display: none; */
 }
-
 .container-fluid {
   padding: 0;
 }
@@ -242,16 +236,13 @@ height: auto;
   margin: 0;
   padding: 1vw;
 }
-
 .col {
   margin: 1vw 0 1vw 0;
   padding: 0 1vw;
 }
-
 .card-title {
   font-size: 3vw;
 }
-
 .card-text {
   font-size: 2vw;
 }
@@ -282,7 +273,6 @@ height: auto;
 .enjoy {
   text-align: center;
 }
-
 .card-recipe {
   transition: all 0.5s linear;
 }
@@ -290,13 +280,6 @@ height: auto;
   transition: all 0.5s linear;
 }
 
-
-
-/*--Select menus--*/
-
-/* select {
-  width: 200px;
-} */
 
 /*Save buttons - ensures click event still works if icon inside button is clicked*/
 .ex-save-btn > * {
