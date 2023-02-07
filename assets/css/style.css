@@ -192,3 +192,11 @@ label {
 select {
   width: 200px;
 }
+
+/*Save buttons - ensures click event still works if icon inside button is clicked*/
+.ex-save-btn > * {
+  pointer-events: none;
+}
+.recipe-save-btn > * {
+  pointer-events: none;
+}
