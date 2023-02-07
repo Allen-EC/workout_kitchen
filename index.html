@@ -76,17 +76,42 @@
           <div class="userSearch">
             <form id="recipeForm" class="form-outline">
               <input type="text" id="recipeInput" placeholder="Meal/Ingredients" class="form-control" />
-              
-              
               <a class="btn btn-recipe" href="#recipes-container"><button class="buttonSearch" type="button" value="Submit"> Search </button></a>
-              
           </form>
           </div>
       </div>
     </div>
 
 
+    <!-- Exercises -->
+    <div class="userSelection">
+      <div id="exercises">
+        <p class="formText">Exercises Menu:</p>
+        <div class="userSearch">
+          <form id="exerciseForm" class="form-outline">
+            <select name="type" id="exerciseType" class="form-select">
+              <option value="cardio" selected>Cardio</option>
+              <option value="olympic_weightlifting">Olympic Weightlifting</option>
+              <option value="plyometrics">Plyometrics</option>
+              <option value="powerlifting">Powerlifting</option>
+              <option value="strength">Strength</option>
+              <option value="stretching">Stretching</option>
+              <option value="strongman">Strongman</option>
+            </select>
 
+            <select name="level" id="exerciseLevel" class="form-select">
+              <option value="beginner" selected>Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            <br>
+            <a class="btn btn-exercises" href="#exercises-container"><button id="submit-exercise" class="buttonSearch">Search</button></a>
+        </form>
+        </div>
+      </div>
+    </div>
+
+<!-- ---- OLD EXERCISE SEARCH - NEEDS TO REMOVED ---- -->
     <!--Input forms for searching recipes and exercises-->
     <!-- <div class="container-lg">
         <div class="row" align-items-center>

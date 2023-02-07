@@ -191,7 +191,7 @@ main {
   padding-top: 2vw;
 }
 
-#recipeInput, .exerciseText{
+#recipeInput, #exerciseLevel, #exerciseType{
   padding: 1vw;
   font-size:1.5vw;
   border-width: 1px;
@@ -205,7 +205,7 @@ main {
   height: 3vw;
 }
 
-#buttonSearch, .buttonSearch{
+.buttonSearch{
   font-weight: 600;
   font-size: 1.25vw;
   color: #000000;
@@ -217,7 +217,7 @@ main {
   width: 10vw;
 }
 
-.btn-recipe {
+.btn-recipe, .btn-exercises {
   display: flex;
   padding: 0%;
   margin: 0%;
@@ -226,6 +226,7 @@ main {
 .btn {
   margin-right: 2vw;
 }
+
 
 /* Card Container */
 .cardContainer {
@@ -293,9 +294,9 @@ height: auto;
 
 /*--Select menus--*/
 
-select {
+/* select {
   width: 200px;
-}
+} */
 
 /*Save buttons - ensures click event still works if icon inside button is clicked*/
 .ex-save-btn > * {
