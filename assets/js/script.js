@@ -199,14 +199,42 @@ function removeSpecialChars(string) {
 }
 
 
+//-----SAVE TO LOCAL STORAGE-----
 
 //CLICK EVENTS FOR SAVE BUTTONS
+//save exercise
 $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
   saveBtnIcon(event);
+  var exCardTitle = $(event.target).siblings('.card-title').text();
+  var exCardTextEquip = $(event.target).siblings('.equipment').text();
+  var exCardTextMuscle = $(event.target).siblings('.muscle').text();
+  var exCardInstructions = $(event.target).parent().siblings().text();
+  var favouriteExercises = JSON.parse(localStorage.getItem('favourite-exercises')) || [];
+  var savedExCard = {
+    title: exCardTitle,
+    equipment: exCardTextEquip,
+    muscle: exCardTextMuscle,
+    instructions: exCardInstructions
+  }
+  favouriteExercises.push(savedExCard);
+  localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
 });
 
+//save recipe
 $(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
   saveBtnIcon(event);
+  var recipeCardTitle = $(event.target).siblings('.card-title').text();
+  var recipeCardID = $(event.target).siblings('.btn-toggle').attr("data-id");
+  console.log(recipeCardID);
+  var recipeImg = $(event.target).parent().siblings("img").attr("src");
+  var favouriteRecipes = JSON.parse(localStorage.getItem('favourite-recipes')) || [];
+  var savedRecipeCard = {
+    title: recipeCardTitle,
+    image: recipeImg,
+    id: recipeCardID
+  }
+  favouriteRecipes.push(savedRecipeCard);
+  localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
 });
 
 //function to change the text and icon on the button when clicked
