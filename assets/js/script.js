@@ -153,12 +153,12 @@ function createCards(data) {
         '<h5 class="card-title">' + removeSpecialChars(data[i].name) + "</h5>"
       );
       var equipment = $(
-        '<p class="card-text">Equipment: ' +
+        '<p class="card-text equipment">Equipment: ' +
           removeSpecialChars(data[i].equipment) +
           ".</p>"
       );
       var muscle = $(
-        '<p class="card-text">Target muscle: ' + data[i].muscle + ".</p>"
+        '<p class="card-text muscle">Target muscle: ' + data[i].muscle + ".</p>"
       );
       //creates button which will extend card to show instructions
       var btnInstructions = $(
@@ -199,14 +199,56 @@ function removeSpecialChars(string) {
 }
 
 
+//-----SAVE TO LOCAL STORAGE-----
 
 //CLICK EVENTS FOR SAVE BUTTONS
+//save exercise
 $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
   saveBtnIcon(event);
+  var exCardTitle = $(event.target).siblings('.card-title').text();
+  var exCardTextEquip = $(event.target).siblings('.equipment').text();
+  var exCardTextMuscle = $(event.target).siblings('.muscle').text();
+  var exCardInstructions = $(event.target).parent().siblings().text();
+  var favouriteExercises = JSON.parse(localStorage.getItem('favourite-exercises')) || [];
+  var savedExCard = {
+    title: exCardTitle,
+    equipment: exCardTextEquip,
+    muscle: exCardTextMuscle,
+    instructions: exCardInstructions
+  }
+  //for loop to check if exercise already saved and removes it
+  for (var i=0; i<favouriteExercises.length; i++){
+    if (favouriteExercises[i].title === savedExCard.title) {
+      favouriteExercises.splice(i,1);
+      break;
+    }
+  }
+  favouriteExercises.push(savedExCard);
+  localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
 });
 
+//save recipe
 $(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
   saveBtnIcon(event);
+  var recipeCardTitle = $(event.target).siblings('.card-title').text();
+  var recipeCardID = $(event.target).siblings('.btn-toggle').attr("data-id");
+  console.log(recipeCardID);
+  var recipeImg = $(event.target).parent().siblings("img").attr("src");
+  var favouriteRecipes = JSON.parse(localStorage.getItem('favourite-recipes')) || [];
+  var savedRecipeCard = {
+    title: recipeCardTitle,
+    image: recipeImg,
+    id: recipeCardID
+  }
+  //for loop to check if recipe already saved and removes it
+  for (var i=0; i<favouriteRecipes.length; i++){
+    if (favouriteRecipes[i].id === savedRecipeCard.id) {
+      favouriteRecipes.splice(i,1);
+      break;
+    }
+  }
+  favouriteRecipes.push(savedRecipeCard);
+  localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
 });
 
 //function to change the text and icon on the button when clicked
