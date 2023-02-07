@@ -200,7 +200,7 @@ function removeSpecialChars(string) {
 
 
 
-//click event for save buttons
+//CLICK EVENTS FOR SAVE BUTTONS
 $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
   saveBtnIcon(event);
 });
@@ -209,6 +209,7 @@ $(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
   saveBtnIcon(event);
 });
 
+//function to change the text and icon on the button when clicked
 function saveBtnIcon(event) {
   var btn = $(".btn").closest($(event.target));
   btn.attr("data-click", "clicked");
