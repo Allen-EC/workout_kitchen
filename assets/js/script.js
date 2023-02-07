@@ -1,7 +1,7 @@
 //-----RECIPE SEARCH-----
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
+var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -24,36 +24,44 @@ searchBtn.on("click", function () {
     url: urlIngredient,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     // loop over the response array and dynamically create recipe card based on received data
-    for (var i = 0; i < response.length; i++) {
-      // creatin card div
-      var divRecipeCard = $("<div>");
-      divRecipeCard.addClass("card card-recipe");
-      divRecipeCard.attr("style", "width:20rem");
-      // creating image
-      var imageRecipe = $("<img>");
-      imageRecipe.addClass("card-img-top");
-      imageRecipe.attr("src", response[i].image);
-      // creating div (card body) for recipe text and button
-      var recipeCardBody = $("<div>");
-      recipeCardBody.addClass("card-body");
-      var recipeTitleEL = $("<h5>" + response[i].title + "</h5>");
-      recipeTitleEL.addClass("card-title");
-      var btnFullRecipe = $("<button></button>");
-      // Icon for button
-      var iconUp = $("<i>");
-      iconUp.addClass("fa-solid fa-angle-up");
-      var iconDown = $("<i>");
-      iconDown.addClass("fa-solid fa-angle-down");
-      btnFullRecipe.append(iconUp, iconDown);
-      btnFullRecipe.addClass("btn btn-primary btn-toggle");
-      btnFullRecipe.attr("data-id", response[i].id);
-      var save = $("<button>Save</button>");
-      save.addClass(" btn btn-secondary");
-      // displaying dynamically created cards to the user
-      recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
-      divRecipeCard.append(imageRecipe, recipeCardBody);
-      recipesContainerEl.append(divRecipeCard);
+    if (response.length > 0) {
+      for (var i = 0; i < response.length; i++) {
+        // creatin card div
+        var divRecipeCard = $("<div>");
+        divRecipeCard.addClass("card card-recipe");
+        divRecipeCard.attr("style", "width:20rem");
+        // creating image
+        var imageRecipe = $("<img>");
+        imageRecipe.addClass("card-img-top");
+        imageRecipe.attr("src", response[i].image);
+        // creating div (card body) for recipe text and button
+        var recipeCardBody = $("<div>");
+        recipeCardBody.addClass("card-body");
+        var recipeTitleEL = $("<h5>" + response[i].title + "</h5>");
+        recipeTitleEL.addClass("card-title");
+        var btnFullRecipe = $("<button></button>");
+        // Icon for button
+        var iconUp = $("<i>");
+        iconUp.addClass("fa-solid fa-angle-up");
+        var iconDown = $("<i>");
+        iconDown.addClass("fa-solid fa-angle-down");
+        btnFullRecipe.append(iconUp, iconDown);
+        btnFullRecipe.addClass("btn btn-primary btn-toggle");
+        btnFullRecipe.attr("data-id", response[i].id);
+        var save = $("<button>Save</button>");
+        save.addClass(" btn btn-secondary");
+        // displaying dynamically created cards to the user
+        recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
+        divRecipeCard.append(imageRecipe, recipeCardBody);
+        recipesContainerEl.append(divRecipeCard);
+      }
+    } else {
+      var responseEl = $(
+        "<p>No results - please try another recipe search</p>"
+      );
+      recipesContainerEl.append(responseEl);
     }
   });
 });
