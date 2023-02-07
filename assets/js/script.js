@@ -216,6 +216,13 @@ $(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
     muscle: exCardTextMuscle,
     instructions: exCardInstructions
   }
+  //for loop to check if exercise already saved and removes it
+  for (var i=0; i<favouriteExercises.length; i++){
+    if (favouriteExercises[i].title === savedExCard.title) {
+      favouriteExercises.splice(i,1);
+      break;
+    }
+  }
   favouriteExercises.push(savedExCard);
   localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
 });
@@ -232,6 +239,13 @@ $(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
     title: recipeCardTitle,
     image: recipeImg,
     id: recipeCardID
+  }
+  //for loop to check if recipe already saved and removes it
+  for (var i=0; i<favouriteRecipes.length; i++){
+    if (favouriteRecipes[i].id === savedRecipeCard.id) {
+      favouriteRecipes.splice(i,1);
+      break;
+    }
   }
   favouriteRecipes.push(savedRecipeCard);
   localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
