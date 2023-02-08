@@ -154,22 +154,25 @@ main {
   height: 20vw;
 }
 /* input for user */
-#recipeForm, #exerciseForm {
+#recipeForm,
+#exerciseForm {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
-#recipeForm{
+#recipeForm {
   width: 50%;
 }
 #exerciseForm {
   width: 80%;
 }
-#recipe, #exercises, .cardContainer{
+#recipe,
+#exercises,
+.cardContainer {
   width: 84vw;
   height: 13vw;
   border-radius: 3vw;
   background-color: white;
-  box-shadow: 4px 4px 26px -3px rgba(0,0,0,0.1);    
+  box-shadow: 4px 4px 26px -3px rgba(0, 0, 0, 0.1);
 }
 .formText {
   color: black;
@@ -184,12 +187,14 @@ main {
   justify-content: center;
   padding-top: 2vw;
 }
-#recipeInput, #exerciseLevel, #exerciseType{
+#recipeInput,
+#exerciseLevel,
+#exerciseType {
   padding: 1vw;
-  font-size:1.5vw;
+  font-size: 1.5vw;
   border-width: 1px;
-  border-color: #CCCCCC;
-  background-color: #FFFFFF;
+  border-color: #cccccc;
+  background-color: #ffffff;
   color: #000000;
   border-style: solid;
   border-radius: 50px;
@@ -199,10 +204,11 @@ main {
 #recipeInput {
   text-align: center;
 }
-#exerciseLevel, #exerciseType {
+#exerciseLevel,
+#exerciseType {
   width: 23vw;
 }
-.buttonSearch{
+.buttonSearch {
   font-weight: 600;
   font-size: 1.25vw;
   color: #000000;
@@ -213,7 +219,8 @@ main {
   height: 3vw;
   width: 10vw;
 }
-.btn-recipe, .btn-exercises {
+.btn-recipe,
+.btn-exercises {
   display: flex;
   align-items: center;
   padding: 0%;
@@ -225,8 +232,8 @@ main {
 
 /* Card Container */
 .cardContainer {
-height: auto;
-/* display: none; */
+  height: auto;
+  /* display: none; */
 }
 .container-fluid {
   padding: 0;
@@ -246,10 +253,6 @@ height: auto;
 .card-text {
   font-size: 2vw;
 }
-
-
-
-
 
 /* Cards for recipes */
 .card-container {
@@ -280,7 +283,6 @@ height: auto;
   transition: all 0.5s linear;
 }
 
-
 /*Save buttons - ensures click event still works if icon inside button is clicked*/
 .ex-save-btn > * {
   pointer-events: none;
@@ -288,7 +290,6 @@ height: auto;
 .recipe-save-btn > * {
   pointer-events: none;
 }
-
 
 /*--Footer--*/
 footer p {
