@@ -107,14 +107,14 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       // if vegan vegetarian
       if (response.vegan) {
         var veganIcon = $("<i class= 'fa-solid fa-seedling'></i>");
-        var veganEl = $("<p class= 'vegan-text'>VG</p>");
+        var veganEl = $("<p class= 'vegan-text'>Vegan</p>");
         veganEl.attr("style", "color:green");
         veganIcon.attr("style", "color:green");
         veganEl.append(veganIcon);
       }
       if (response.vegetarian) {
         var vegetarianIcon = $("<i class= 'fa-solid fa-seedling'></i>");
-        var vegetarianEl = $("<p>V</p>");
+        var vegetarianEl = $("<p>Vegetarian</p>");
         vegetarianEl.attr("style", "color:green");
         vegetarianIcon.attr("style", "color:green");
         vegetarianEl.append(veganIcon);
