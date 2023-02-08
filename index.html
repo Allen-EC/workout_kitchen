@@ -10,22 +10,26 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Font Awesome -->
     <script src="https://kit.fontawesome.com/e19e53c207.js" crossorigin="anonymous"></script>
-
     <!-- Title -->
     <title>Workout Kitchen</title>
 
-    <!-- Favicon -->
+    <!-- Favicon --> 
+    <!-- Icon generated using Dall-E 2 -->
     <link rel="icon" type="image/x-icon" href="assets/images/3Dimages/Icon/favicon.png">
 </head>
+
 <body>
+  <!-- Header -->
   <header>
-    <!--        navbar         -->
+    <!-- NavBar -->
   <nav class="navBar">
+    <!-- Icon -->
     <div class="IconImage">
       <a class="iconLink" href="#">
         <img src="assets/images/3Dimages/Icon/favicon.png" alt="Salad Bowl">
       </a>
     </div>
+    <!-- NavBar Links -->
     <div class="navbarLinks">
       <ul class="nav justify-content-center">
         <li class="nav-item">
@@ -35,30 +39,35 @@
           <a class="nav-link" href="#exercises-container">Exercises</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="favourites.html">Favourites</a>
+          <a class="nav-link" href="favourites.html">Favorites</a>
         </li>
       </ul>
     </div>  
   </nav>
+
+    <!-- Using Shape divider to give styling to the NavBar -->
     <!-- https://www.shapedivider.app/ -->
     <div class="custom-shape-divider-top-1675628588">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
     </div>
+
         <!-- Jumbotron -->
         <!-- This section contains a container with an image and a description to give the user a basic idea of what this webpage/brand is about -->
         <div id="jumbotron">
-          <img id="jumbotronImage" src="assets/images/recipe.jpg" alt="workout kitchen, this image represent the brand combining a healthy plate and a person doing fitness">
+          <img id="jumbotronImage" src="assets/images/recipe.jpg" alt="Workout Kitchen, this image represent the brand using a healty meal, low calories and high proteins, the image is a chicken salad with carrots on the side">
           <div id="jumbotronText">
-              <h2 id="jumbotronWorkout">Workout</h2>
+            <!-- Name of the Brand -->
+              <h2 id="jumbotronWorkout">Workout</h2> 
               <h2 id="jumbotronKitchen">Kitchen</h2>
-              <p id="jumbotronSlogan">"Fuel your fitness with the right nutrition"</p>
+              <p id="jumbotronSlogan">"Fuel your fitness with the right nutrition"</p> <!-- Slogan of the Brand-->
           </div>
       </div>
   </header>
 
-  <!-- Header and Main Divider -->
+  <!-- Header and Main Divider used to give a smooth design transition between the jumbotron and search bars -->
+  <!-- https://www.shapedivider.app/ -->
   <div class="custom-shape-divider-top-1675629525">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -67,15 +76,14 @@
     </svg>
   </div>
 
-
+    <!-- Main -->
     <main>
-
       <div class="userSelection">
         <!-- Widget dialog -->
         <div id="dialog" title=" Useful search tip ">
-          <p>Try to type in the ingredients you want to use separated by comma (for example tomato, cheese)</p>
+          <p> Recipe with different ingredients can be found by specifying each ingredients divided by commas (i.e. tomato, cheese, pasta)</p>
         </div>
-        <!--  -->
+        <!-- Recipe Container, this is what the user will use to search for recipes  -->
         <div id="recipe">
           <p class="formText">Recipes Menu:</p>
           <div class="userSearch">
@@ -87,17 +95,16 @@
       </div>
     </div>
 
-        <!--container for recipe cards -->
-        <div class="card-container recipe-cards-container" id="recipes-container">
-      
-        </div>
+        <!-- Container for generated recipes cards-->
+        <div class="card-container recipe-cards-container" id="recipes-container"></div>
         
-    <!-- Exercises -->
+    <!-- Exercises Container, this is what the user will use to search for exercises -->
     <div class="userSelection">
       <div id="exercises">
         <p class="formText">Exercises Menu:</p>
         <div class="userSearch">
           <form id="exerciseForm" class="form-outline">
+            <!-- Select Menus for type of exercises -->
             <select name="type" id="exerciseType" class="form-select">
               <option value="cardio" selected>Cardio</option>
               <option value="olympic_weightlifting">Olympic Weightlifting</option>
@@ -107,7 +114,7 @@
               <option value="stretching">Stretching</option>
               <option value="strongman">Strongman</option>
             </select>
-
+            <!-- Select Menu for level of difficulty of each exercise -->
             <select name="level" id="exerciseLevel" class="form-select">
               <option value="beginner" selected>Beginner</option>
               <option value="intermediate">Intermediate</option>
@@ -119,18 +126,17 @@
       </div>
     </div>
 
-        <!--container for exercise cards -->
-    <div class="card-container exercise-cards-container" id="exercises-container">
-
-    </div>
+        <!--container for generated exercises cards -->
+    <div class="card-container exercise-cards-container" id="exercises-container"></div>
     
     </main>
 
+    <!-- Footer -->
     <footer>
-      <!-- <a href="https://github.com/Allen-EC/workout_kitchen"><i class="fa-brands fa-github fa-xl"></i></a> -->
       <p>Workout Kitchen - All Rights Reserved 2023</p>
     </footer>
     
+    <!-- Javascript Section -->
     <!-- popperJS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
