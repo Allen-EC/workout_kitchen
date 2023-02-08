@@ -2,6 +2,11 @@
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
 var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
+// var keyRecipes = "&apiKey=af6434966fb94e6daeee75dc4085d08d";
+// var keyRecipes = "&apiKey=fc5be7872da647b7a8f8cb8e940470a4";
+// var keyRecipes = "&apiKey=2e1e9f5c5088425086492362f6bd6756";
+// var keyRecipes = "&apiKey=236e7bcb357349319ce62701e379f7c9";
+// var keyRecipes = "&apiKey=fe29821c13db4e459d6e8bf085396eac";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
