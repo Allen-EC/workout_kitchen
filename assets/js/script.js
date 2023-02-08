@@ -14,6 +14,8 @@ var inputEl = $("#recipeInput");
 var btnSave = $("<button>Save</button>");
 btnSave.addClass("btn btn-secondary");
 
+$("#dialog").hide();
+
 // click event on recipes div-container/latter to be changed on "button"
 searchBtn.on("click", function () {
   recipesContainerEl.empty();
@@ -61,9 +63,14 @@ searchBtn.on("click", function () {
         recipesContainerEl.append(divRecipeCard);
       }
     } else {
+      $("#dialog").dialog().show();
+      var dialogBtn = $(".ui-dialog-titlebar-close");
+      dialogBtn.addClass("btn btn-primary tip");
+      dialogBtn.text("x");
       var responseEl = $(
         "<p>No results - please try another recipe search</p>"
       );
+      recipesContainerEl.empty();
       recipesContainerEl.append(responseEl);
     }
   });
