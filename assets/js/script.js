@@ -1,7 +1,7 @@
 //-----RECIPE SEARCH-----
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
+var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -24,7 +24,6 @@ searchBtn.on("click", function () {
     url: urlIngredient,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     // loop over the response array and dynamically create recipe card based on received data
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
@@ -47,7 +46,9 @@ searchBtn.on("click", function () {
         btnFullRecipe.append(iconDown);
         btnFullRecipe.addClass("btn btn-primary btn-toggle");
         btnFullRecipe.attr("data-id", response[i].id);
-        var save = $("<button>Save <i class='fa-solid fa-heart-circle-plus'></i></button></button>");
+        var save = $(
+          "<button>Save <i class='fa-solid fa-heart-circle-plus'></i></button></button>"
+        );
         save.addClass("btn btn-secondary recipe-save-btn");
         // displaying dynamically created cards to the user
         recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
@@ -92,6 +93,23 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
+      console.log(response.vegan);
+      //
+      if (response.vegan) {
+        var veganIcon = $("<i class= 'fa-solid fa-seedling'></i>");
+        var veganEl = $("<p class= 'vegan-text'>VG</p>");
+        veganEl.attr("style", "color:green");
+        veganIcon.attr("style", "color:green");
+        veganEl.append(veganIcon);
+      }
+      if (response.vegetarian) {
+        var vegetarianIcon = $("<i class= 'fa-solid fa-seedling'></i>");
+        var vegetarianEl = $("<p>V</p>");
+        vegetarianEl.attr("style", "color:green");
+        vegetarianIcon.attr("style", "color:green");
+        vegetarianEl.append(veganIcon);
+      }
+      //
       var prepText = $("<p>" + response.instructions + "<p>");
       // creating ul with li elements containing recipe ingredients
       var ulEl = $("<ul>");
@@ -105,7 +123,15 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       var expandEl = $("<div>");
       expandEl.addClass("expand");
       var enjoyEl = $("<h5 class='enjoy'>Enjoy</h5>");
-      expandEl.append(textIngredients, ulEl, prepTitle, prepText, enjoyEl);
+      expandEl.append(
+        textIngredients,
+        ulEl,
+        prepTitle,
+        prepText,
+        veganEl,
+        vegetarianEl,
+        enjoyEl
+      );
       cardBodyElement.prepend(expandEl);
       expandEl.hide();
       expandEl.show("slow");
@@ -198,64 +224,68 @@ function removeSpecialChars(string) {
   return newString;
 }
 
-
 //-----SAVE TO LOCAL STORAGE-----
 
 //CLICK EVENTS FOR SAVE BUTTONS
 //save exercise
-$(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
+$(".exercise-cards-container").on("click", ".ex-save-btn", function (event) {
   saveBtnIcon(event);
-  var exCardTitle = $(event.target).siblings('.card-title').text();
-  var exCardTextEquip = $(event.target).siblings('.equipment').text();
-  var exCardTextMuscle = $(event.target).siblings('.muscle').text();
+  var exCardTitle = $(event.target).siblings(".card-title").text();
+  var exCardTextEquip = $(event.target).siblings(".equipment").text();
+  var exCardTextMuscle = $(event.target).siblings(".muscle").text();
   var exCardInstructions = $(event.target).parent().siblings().text();
-  var favouriteExercises = JSON.parse(localStorage.getItem('favourite-exercises')) || [];
+  var favouriteExercises =
+    JSON.parse(localStorage.getItem("favourite-exercises")) || [];
   var savedExCard = {
     title: exCardTitle,
     equipment: exCardTextEquip,
     muscle: exCardTextMuscle,
-    instructions: exCardInstructions
-  }
+    instructions: exCardInstructions,
+  };
   //for loop to check if exercise already saved and removes it
-  for (var i=0; i<favouriteExercises.length; i++){
+  for (var i = 0; i < favouriteExercises.length; i++) {
     if (favouriteExercises[i].title === savedExCard.title) {
-      favouriteExercises.splice(i,1);
+      favouriteExercises.splice(i, 1);
       break;
     }
   }
   favouriteExercises.push(savedExCard);
-  localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
+  localStorage.setItem(
+    "favourite-exercises",
+    JSON.stringify(favouriteExercises)
+  );
 });
 
 //save recipe
-$(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
+$(".recipe-cards-container").on("click", ".recipe-save-btn", function (event) {
   saveBtnIcon(event);
-  var recipeCardTitle = $(event.target).siblings('.card-title').text();
-  var recipeCardID = $(event.target).siblings('.btn-toggle').attr("data-id");
+  var recipeCardTitle = $(event.target).siblings(".card-title").text();
+  var recipeCardID = $(event.target).siblings(".btn-toggle").attr("data-id");
   console.log(recipeCardID);
   var recipeImg = $(event.target).parent().siblings("img").attr("src");
-  var favouriteRecipes = JSON.parse(localStorage.getItem('favourite-recipes')) || [];
+  var favouriteRecipes =
+    JSON.parse(localStorage.getItem("favourite-recipes")) || [];
   var savedRecipeCard = {
     title: recipeCardTitle,
     image: recipeImg,
-    id: recipeCardID
-  }
+    id: recipeCardID,
+  };
   //for loop to check if recipe already saved and removes it
-  for (var i=0; i<favouriteRecipes.length; i++){
+  for (var i = 0; i < favouriteRecipes.length; i++) {
     if (favouriteRecipes[i].id === savedRecipeCard.id) {
-      favouriteRecipes.splice(i,1);
+      favouriteRecipes.splice(i, 1);
       break;
     }
   }
   favouriteRecipes.push(savedRecipeCard);
-  localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
+  localStorage.setItem("favourite-recipes", JSON.stringify(favouriteRecipes));
 });
 
 //function to change the text and icon on the button when clicked
 function saveBtnIcon(event) {
   var btn = $(".btn").closest($(event.target));
   btn.attr("data-click", "clicked");
-  btn.text('Saved ');
+  btn.text("Saved ");
   var savedIcon = $("<i class='fa-solid fa-heart-circle-check'></i>");
   btn.append(savedIcon);
 }
