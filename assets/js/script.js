@@ -78,7 +78,7 @@ searchBtn.on("click", function () {
 
 // Click event on "See Full Recipe" button
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
-  $("i", $(this)).toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
+  $("i").toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
   if ($(".card-body").find(".expand").length > 0) {
     $(".expand").hide("slow", function () {
       $(".expand").remove();
