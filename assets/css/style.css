@@ -298,6 +298,10 @@ header {
   transition: all 0.5s linear;
 }
 
+.collapse .card-text {
+  padding: 2vw;
+}
+
 /*Save buttons to move card to favorite.html*/
 .ex-save-btn > * {
   pointer-events: none;
