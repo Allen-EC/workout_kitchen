@@ -138,13 +138,13 @@ header {
 }
 
 /* ------ */
-/* main {
+main {
   margin-bottom: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-} */
+}
 
 .userSelection {
   display: flex;
@@ -333,9 +333,4 @@ footer p {
   border-color: black;
   color: white;
   background-color: black;
-}
-
-
-.favouriteTitles {
-  text-align: center;
 }
