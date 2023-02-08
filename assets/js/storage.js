@@ -1,4 +1,5 @@
-var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
+// var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
+var keyRecipes = "&apiKey=236e7bcb357349319ce62701e379f7c9";
 
 renderSavedRecipes();
 renderSavedExercises();

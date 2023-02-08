@@ -138,13 +138,13 @@ header {
 }
 
 /* ------ */
-main {
+/* main {
   margin-bottom: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
 .userSelection {
   display: flex;
@@ -247,12 +247,12 @@ main {
   margin: 1vw 0 1vw 0;
   padding: 0 1vw;
 }
-.card-title {
+/* .card-title {
   font-size: 3vw;
 }
 .card-text {
   font-size: 2vw;
-}
+} */
 
 /* Cards for recipes */
 .card-container {
