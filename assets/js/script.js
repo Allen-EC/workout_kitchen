@@ -9,6 +9,10 @@ var inputEl = $("#recipeInput");
 var btnSave = $("<button>Save</button>");
 btnSave.addClass("btn btn-secondary");
 
+//
+
+$("#dialog").hide();
+
 // click event on recipes div-container/latter to be changed on "button"
 searchBtn.on("click", function () {
   recipesContainerEl.empty();
@@ -56,9 +60,14 @@ searchBtn.on("click", function () {
         recipesContainerEl.append(divRecipeCard);
       }
     } else {
+      $("#dialog").dialog().show();
+      var dialogBtn = $(".ui-dialog-titlebar-close");
+      dialogBtn.addClass("btn btn-primary tip");
+      dialogBtn.text("x");
       var responseEl = $(
         "<p>No results - please try another recipe search</p>"
       );
+      recipesContainerEl.empty();
       recipesContainerEl.append(responseEl);
     }
   });
@@ -66,7 +75,7 @@ searchBtn.on("click", function () {
 
 // Click event on "See Full Recipe" button
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
-  $("i", $(this)).toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
+  $("i").toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
   if ($(".card-body").find(".expand").length > 0) {
     $(".expand").hide("slow", function () {
       $(".expand").remove();
