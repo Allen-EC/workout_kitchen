@@ -1,18 +1,21 @@
 /* Workout Kitchen - Group Project */
-/* General Styling */
+/* This CSS file is being share in each page of the website */
 
-/* General Property given to body and margin and padding set to zero to avoid possible confusion when using these properties */
+/* Body */
+/* Defined background image of the webpage and fixed it adapt on different screen sizes */
 body {
   background-image: url("../images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* header */
-/* navbar */
 
+/* --- */
+/* header */
 header {
   background-color: white;
+
+/* NavBar */
 }
 .navBar {
   position: relative;
@@ -22,6 +25,11 @@ header {
   align-items: center;
   z-index: 1;
 }
+.nav {
+  --bs-nav-link-color: black;
+}
+
+/* NavBar Links/text */
 .navbarLinks {
   display: flex;
   width: 90%;
@@ -31,9 +39,6 @@ header {
   letter-spacing: 0.1em;
   font-weight: 700;
 }
-.nav {
-  --bs-nav-link-color: black;
-}
 .navbarLinks li {
   padding-left: 3vw;
   padding-right: 3vw;
@@ -41,11 +46,12 @@ header {
 .navbarLinks a {
   border-bottom: solid 2px black;
 }
+
+/* NavBar Image Icon */
 .iconLink img {
   width: auto;
   max-height: 175px;
 }
-
 /* Making Icon more responsive for smaller screens  */
 @media only screen and (max-width: 360px) {
   .iconLink img {
@@ -54,7 +60,7 @@ header {
 }
 
 /* NavBar Shape Divider */
-/* https://www.shapedivider.app/ */
+/* https://www.shapedivider.app/ Code copy and pasted from generator */
 .custom-shape-divider-top-1675628588 {
   position: absolute;
   top: 0;
@@ -74,7 +80,7 @@ header {
   fill: #f1af41;
 }
 
-/* ------ */
+/* --- */
 /* jumbotron */
 #jumbotron {
   display: flex;
@@ -84,10 +90,12 @@ header {
   padding-left: 2%;
   position: relative;
 }
+/* JumboTron Image (Salad Bowl) */
 #jumbotronImage {
   width: 50%;
   height: 50%;
 }
+/* Jumbotron Text */
 #jumbotronText {
   display: flex;
   flex-direction: column;
@@ -118,6 +126,7 @@ header {
 }
 
 /* Divider between Header and Main */
+/* https://www.shapedivider.app/ Code copy and pasted from generator */
 .custom-shape-divider-top-1675629525 {
   position: relative;
   top: 0;
@@ -137,23 +146,28 @@ header {
   fill: #ffffff;
 }
 
-/* ------ */
-/* main {
-  margin-bottom: 5vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} */
+/* --- */
 
+/* Main */
+/* User Selection, this gives styling to the container the user will be using to search for recipes or exercises */
 .userSelection {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
   height: 20vw;
 }
-/* input for user */
+
+/* Styling to container where button and forms are located */
+#recipe,
+#exercises {
+  width: 84vw;
+  height: 13vw;
+  border-radius: 3vw;
+  background-color: white;
+  box-shadow: 4px 4px 26px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling to form where user will selected or type an input */
 #recipeForm,
 #exerciseForm {
   display: flex;
@@ -164,15 +178,6 @@ header {
 }
 #exerciseForm {
   width: 80%;
-}
-#recipe,
-#exercises,
-.cardContainer {
-  width: 84vw;
-  height: 13vw;
-  border-radius: 3vw;
-  background-color: white;
-  box-shadow: 4px 4px 26px -3px rgba(0, 0, 0, 0.1);
 }
 .formText {
   color: black;
@@ -208,6 +213,8 @@ header {
 #exerciseType {
   width: 23vw;
 }
+
+/* Search Button */
 .buttonSearch {
   font-weight: 600;
   font-size: 1.25vw;
@@ -226,78 +233,8 @@ header {
   padding: 0%;
   margin: 0%;
 }
-.btn {
-  margin-right: 2vw;
-}
 
-/* Card Container */
-.cardContainer {
-  height: auto;
-  /* display: none; */
-}
-.container-fluid {
-  padding: 0;
-}
-.row {
-  justify-content: center;
-  margin: 0;
-  padding: 1vw;
-}
-.col {
-  margin: 1vw 0 1vw 0;
-  padding: 0 1vw;
-}
-/* .card-title {
-  font-size: 3vw;
-}
-.card-text {
-  font-size: 2vw;
-} */
-
-/* Cards for recipes */
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-.card {
-  margin: 10px;
-}
-.card img {
-  max-width: 300px;
-  height: auto;
-  margin: auto;
-  margin-top: 5px;
-  border-radius: 10px;
-}
-.card-title,
-.enjoy {
-  text-align: center;
-}
-.card-recipe {
-  transition: all 0.5s linear;
-}
-.smooth {
-  transition: all 0.5s linear;
-}
-
-/*Save buttons - ensures click event still works if icon inside button is clicked*/
-.ex-save-btn > * {
-  pointer-events: none;
-}
-.recipe-save-btn > * {
-  pointer-events: none;
-}
-
-/*--Footer--*/
-footer p {
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.5vw;
-}
-/* widget */
+/* Widget Styling */
 .ui-dialog-titlebar {
   cursor: grab;
   padding: 5px;
@@ -326,6 +263,61 @@ footer p {
   color: white;
   background-color: black;
 }
+
+/* General Styling for every button that would create some space on the right for other button or text so they are not attached */
+.btn {
+  margin-right: 2vw;
+}
+
+/* Styling for generated cards */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+.card {
+  margin: 10px;
+}
+.card img {
+  max-width: 300px;
+  height: auto;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+.card-title,
+.enjoy {
+  text-align: center;
+}
+.card-recipe {
+  transition: all 0.5s linear;
+}
+.smooth {
+  transition: all 0.5s linear;
+}
+
+/*Save buttons to move card to favorite.html*/
+.ex-save-btn > * {
+  pointer-events: none;
+}
+.recipe-save-btn > * {
+  pointer-events: none;
+}
+
+/* --- */
+/*Footer*/
+footer p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5vw;
+}
+
+
+/* --- */
+/* Favorite HTML unique code */
+/* Title for each group section */
 .favouriteHeaderSection {
   text-align: center;
 }
