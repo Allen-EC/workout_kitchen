@@ -1,7 +1,7 @@
 //-----RECIPE SEARCH-----
 var recipesContainerEl = $(".recipe-cards-container");
 var ingredient = "beef";
-var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
+var keyRecipes = "&apiKey=f98ddadddf8c48bc87d34611c1e22683";
 
 var searchBtn = $(".btn-recipe");
 var inputEl = $("#recipeInput");
@@ -28,7 +28,6 @@ searchBtn.on("click", function () {
     url: urlIngredient,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     // loop over the response array and dynamically create recipe card based on received data
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
@@ -102,7 +101,22 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       url: urlId,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
+      // if vegan vegetarian
+      if (response.vegan) {
+        var veganIcon = $("<i class= 'fa-solid fa-seedling'></i>");
+        var veganEl = $("<p class= 'vegan-text'>VG</p>");
+        veganEl.attr("style", "color:green");
+        veganIcon.attr("style", "color:green");
+        veganEl.append(veganIcon);
+      }
+      if (response.vegetarian) {
+        var vegetarianIcon = $("<i class= 'fa-solid fa-seedling'></i>");
+        var vegetarianEl = $("<p>V</p>");
+        vegetarianEl.attr("style", "color:green");
+        vegetarianIcon.attr("style", "color:green");
+        vegetarianEl.append(veganIcon);
+      }
+      //
       var prepText = $("<p>" + response.instructions + "<p>");
       // creating ul with li elements containing recipe ingredients
       var ulEl = $("<ul>");
@@ -116,7 +130,15 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       var expandEl = $("<div>");
       expandEl.addClass("expand");
       var enjoyEl = $("<h5 class='enjoy'>Enjoy</h5>");
-      expandEl.append(textIngredients, ulEl, prepTitle, prepText, enjoyEl);
+      expandEl.append(
+        textIngredients,
+        ulEl,
+        prepTitle,
+        prepText,
+        veganEl,
+        vegetarianEl,
+        enjoyEl
+      );
       cardBodyElement.prepend(expandEl);
       expandEl.hide();
       expandEl.show("slow");

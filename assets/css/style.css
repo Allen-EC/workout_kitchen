@@ -252,6 +252,10 @@ main {
 .card-text {
   font-size: 2vw;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 /* Cards for recipes */
 .card-container {
   display: flex;
@@ -280,6 +284,10 @@ main {
 .smooth {
   transition: all 0.5s linear;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 /*Save buttons - ensures click event still works if icon inside button is clicked*/
 .ex-save-btn > * {
   pointer-events: none;
@@ -287,6 +295,10 @@ main {
 .recipe-save-btn > * {
   pointer-events: none;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 /*--Footer--*/
 footer p {
   text-align: center;
