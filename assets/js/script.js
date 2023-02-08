@@ -92,9 +92,7 @@ recipesContainerEl.on("click", ".btn-toggle", function (e) {
       url: urlId,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
-      console.log(response.vegan);
-      //
+      // if vegan vegetarian
       if (response.vegan) {
         var veganIcon = $("<i class= 'fa-solid fa-seedling'></i>");
         var veganEl = $("<p class= 'vegan-text'>VG</p>");
