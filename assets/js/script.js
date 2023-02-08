@@ -9,6 +9,10 @@ var inputEl = $("#recipeInput");
 var btnSave = $("<button>Save</button>");
 btnSave.addClass("btn btn-secondary");
 
+//
+
+$("#dialog").hide();
+
 // click event on recipes div-container/latter to be changed on "button"
 searchBtn.on("click", function () {
   recipesContainerEl.empty();
@@ -47,7 +51,9 @@ searchBtn.on("click", function () {
         btnFullRecipe.append(iconDown);
         btnFullRecipe.addClass("btn btn-primary btn-toggle");
         btnFullRecipe.attr("data-id", response[i].id);
-        var save = $("<button>Save <i class='fa-solid fa-heart-circle-plus'></i></button></button>");
+        var save = $(
+          "<button>Save <i class='fa-solid fa-heart-circle-plus'></i></button></button>"
+        );
         save.addClass("btn btn-secondary recipe-save-btn");
         // displaying dynamically created cards to the user
         recipeCardBody.append(recipeTitleEL, btnFullRecipe, save);
@@ -55,9 +61,14 @@ searchBtn.on("click", function () {
         recipesContainerEl.append(divRecipeCard);
       }
     } else {
+      $("#dialog").dialog().show();
+      var dialogBtn = $(".ui-dialog-titlebar-close");
+      dialogBtn.addClass("btn btn-primary tip");
+      dialogBtn.text("x");
       var responseEl = $(
         "<p>No results - please try another recipe search</p>"
       );
+      recipesContainerEl.empty();
       recipesContainerEl.append(responseEl);
     }
   });
@@ -65,7 +76,7 @@ searchBtn.on("click", function () {
 
 // Click event on "See Full Recipe" button
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
-  $("i", $(this)).toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
+  $("i").toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
   if ($(".card-body").find(".expand").length > 0) {
     $(".expand").hide("slow", function () {
       $(".expand").remove();
@@ -198,64 +209,68 @@ function removeSpecialChars(string) {
   return newString;
 }
 
-
 //-----SAVE TO LOCAL STORAGE-----
 
 //CLICK EVENTS FOR SAVE BUTTONS
 //save exercise
-$(".exercise-cards-container").on("click", ".ex-save-btn", function(event) {
+$(".exercise-cards-container").on("click", ".ex-save-btn", function (event) {
   saveBtnIcon(event);
-  var exCardTitle = $(event.target).siblings('.card-title').text();
-  var exCardTextEquip = $(event.target).siblings('.equipment').text();
-  var exCardTextMuscle = $(event.target).siblings('.muscle').text();
+  var exCardTitle = $(event.target).siblings(".card-title").text();
+  var exCardTextEquip = $(event.target).siblings(".equipment").text();
+  var exCardTextMuscle = $(event.target).siblings(".muscle").text();
   var exCardInstructions = $(event.target).parent().siblings().text();
-  var favouriteExercises = JSON.parse(localStorage.getItem('favourite-exercises')) || [];
+  var favouriteExercises =
+    JSON.parse(localStorage.getItem("favourite-exercises")) || [];
   var savedExCard = {
     title: exCardTitle,
     equipment: exCardTextEquip,
     muscle: exCardTextMuscle,
-    instructions: exCardInstructions
-  }
+    instructions: exCardInstructions,
+  };
   //for loop to check if exercise already saved and removes it
-  for (var i=0; i<favouriteExercises.length; i++){
+  for (var i = 0; i < favouriteExercises.length; i++) {
     if (favouriteExercises[i].title === savedExCard.title) {
-      favouriteExercises.splice(i,1);
+      favouriteExercises.splice(i, 1);
       break;
     }
   }
   favouriteExercises.push(savedExCard);
-  localStorage.setItem('favourite-exercises', JSON.stringify(favouriteExercises));
+  localStorage.setItem(
+    "favourite-exercises",
+    JSON.stringify(favouriteExercises)
+  );
 });
 
 //save recipe
-$(".recipe-cards-container").on("click", ".recipe-save-btn", function(event) {
+$(".recipe-cards-container").on("click", ".recipe-save-btn", function (event) {
   saveBtnIcon(event);
-  var recipeCardTitle = $(event.target).siblings('.card-title').text();
-  var recipeCardID = $(event.target).siblings('.btn-toggle').attr("data-id");
+  var recipeCardTitle = $(event.target).siblings(".card-title").text();
+  var recipeCardID = $(event.target).siblings(".btn-toggle").attr("data-id");
   console.log(recipeCardID);
   var recipeImg = $(event.target).parent().siblings("img").attr("src");
-  var favouriteRecipes = JSON.parse(localStorage.getItem('favourite-recipes')) || [];
+  var favouriteRecipes =
+    JSON.parse(localStorage.getItem("favourite-recipes")) || [];
   var savedRecipeCard = {
     title: recipeCardTitle,
     image: recipeImg,
-    id: recipeCardID
-  }
+    id: recipeCardID,
+  };
   //for loop to check if recipe already saved and removes it
-  for (var i=0; i<favouriteRecipes.length; i++){
+  for (var i = 0; i < favouriteRecipes.length; i++) {
     if (favouriteRecipes[i].id === savedRecipeCard.id) {
-      favouriteRecipes.splice(i,1);
+      favouriteRecipes.splice(i, 1);
       break;
     }
   }
   favouriteRecipes.push(savedRecipeCard);
-  localStorage.setItem('favourite-recipes', JSON.stringify(favouriteRecipes));
+  localStorage.setItem("favourite-recipes", JSON.stringify(favouriteRecipes));
 });
 
 //function to change the text and icon on the button when clicked
 function saveBtnIcon(event) {
   var btn = $(".btn").closest($(event.target));
   btn.attr("data-click", "clicked");
-  btn.text('Saved ');
+  btn.text("Saved ");
   var savedIcon = $("<i class='fa-solid fa-heart-circle-check'></i>");
   btn.append(savedIcon);
 }
