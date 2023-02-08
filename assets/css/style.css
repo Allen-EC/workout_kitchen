@@ -297,3 +297,32 @@ footer p {
   font-weight: 600;
   font-size: 1.5vw;
 }
+/* widget */
+.ui-dialog-titlebar {
+  cursor: grab;
+  padding: 5px;
+  text-align: center;
+  font-size: larger;
+  font-weight: bolder;
+  background-color: rgb(236, 151, 151);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#dialog {
+  cursor: default;
+  padding: 5px;
+  background-color: rgb(246, 208, 208);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: black;
+}
+.tip {
+  background: none;
+  color: black;
+  border-color: black;
+}
+.tip:hover {
+  border-color: black;
+  color: white;
+  background-color: black;
+}
