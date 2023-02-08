@@ -21,7 +21,7 @@ The user then has the option to click the "Down arrow" button to reveal the reci
 If the user likes the recipe, they then have the option to save the card to their favourites by clicking the "Save" button.
 
 ### Exercise Menu
-The user will select they type of exercise they would like to perform, and then select the level of exercise.
+The user will select the type of exercise they would like to perform, and then select the level of exercise.
 They can choose from the following:
 * Cardio
 * Olympic Weightlifting
@@ -44,7 +44,7 @@ If the user is then done with the card, clicking the "Remove" button will remove
 
 ***
 
-The deployed application can be found here: https://allen-ec.github.io/workout-kitchen/
+The deployed application can be found here: https://allen-ec.github.io/workout_kitchen/
 
 ## Credits
 
