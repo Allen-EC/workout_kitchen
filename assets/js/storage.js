@@ -1,6 +1,6 @@
 // var keyRecipes = "&apiKey=e98ec434165744b29dbcb939ab49166f";
-var keyRecipes = "&apiKey=236e7bcb357349319ce62701e379f7c9";
-
+// var keyRecipes = "&apiKey=236e7bcb357349319ce62701e379f7c9";
+var keyRecipes = "&apiKey=fe29821c13db4e459d6e8bf085396eac";
 renderSavedRecipes();
 renderSavedExercises();
 
@@ -24,9 +24,9 @@ function renderSavedRecipes() {
 
       //creating "See more" button
       var btnFullRecipe = $("<button></button>");
-      var iconDown = $("<i>");
-      iconDown.addClass("fa-solid fa-angle-down");
-      btnFullRecipe.append(iconDown);
+      var iconTog = $("<i>");
+      iconTog.addClass("fa-solid fa-up-right-and-down-left-from-center");
+      btnFullRecipe.append(iconTog);
       btnFullRecipe.addClass("btn btn-primary btn-toggle");
       btnFullRecipe.attr("data-id", favouriteRecipes[i].id);
       // REMOVE BUTTON
@@ -46,7 +46,6 @@ function renderSavedRecipes() {
 
 // Click event on "See more" button
 $("#saved-recipes-div").on("click", ".btn-toggle", function (e) {
-  $("i", $(this)).toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
   if ($(".card-body").find(".expand").length > 0) {
     $(".expand").hide("slow", function () {
       $(".expand").remove();

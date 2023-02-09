@@ -48,9 +48,9 @@ searchBtn.on("click", function () {
         var recipeTitleEL = $("<h5>" + response[i].title + "</h5>");
         recipeTitleEL.addClass("card-title");
         var btnFullRecipe = $("<button></button>");
-        var iconDown = $("<i>");
-        iconDown.addClass("fa-solid fa-angle-down");
-        btnFullRecipe.append(iconDown);
+        var iconTog = $("<i>");
+        iconTog.addClass("fa-solid fa-up-right-and-down-left-from-center");
+        btnFullRecipe.append(iconTog);
         btnFullRecipe.addClass("btn btn-primary btn-toggle");
         btnFullRecipe.attr("data-id", response[i].id);
         var save = $(
@@ -78,7 +78,6 @@ searchBtn.on("click", function () {
 
 // Click event on "See Full Recipe" button
 recipesContainerEl.on("click", ".btn-toggle", function (e) {
-  $("i").toggleClass("fa-solid fa-angle-up fa-solid fa-angle-down");
   if ($(".card-body").find(".expand").length > 0) {
     $(".expand").hide("slow", function () {
       $(".expand").remove();
