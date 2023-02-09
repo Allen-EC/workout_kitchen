@@ -342,7 +342,7 @@ footer p {
     --bs-btn-disabled-border-color: #f1af41;
 } 
 .collapse .card-text {
-  padding: 0 2vw 2vw 2vw;
+  padding: 0 1vw 1vw 1vw;
 }
 #saved-exercises-div .card-text .btn{
   margin-bottom: 2vw;
